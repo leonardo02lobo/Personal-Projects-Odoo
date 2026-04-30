@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="event_tournament_view_form" model="ir.ui.view">
+        <field name="name">event.tournament.form</field>
+        <field name="model">event.tournament</field>
+        <field name="arch" type="xml">
+            <form string="Tournament">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_higlight" invisible="state != 'Draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="Draft,Confirm,In_Progress,Done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <field name="name" placeholder="Ej. Tournament of Soccer"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Categories" name="categories">
+                            <field name="category_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

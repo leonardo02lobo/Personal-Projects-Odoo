@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_event_tournament" model="ir.actions.act_window">
+        <field name="name">Tournament</field>
+        <field name="res_model">event.tournament</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_tournament_root" name="Tournament App" sequence="10"/>
+    <menuitem id="menu_tournament_list" name="Listof Tournament"
+            parent="menu_tournament_root"
+            action="action_event_tournament"/>
+</odoo>

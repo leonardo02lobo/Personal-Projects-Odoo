@@ -1,1 +1,2 @@
-user_id,model_id,group_id,perm_create,perm_read,perm_write,perm_unlink
+id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
+access_event_tournament_user,event.tournament user,model_event_tournament,base.group_user,1,1,1,1

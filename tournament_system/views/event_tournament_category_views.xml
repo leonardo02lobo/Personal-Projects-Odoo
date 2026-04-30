@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="event_tournament_category_views_tree" model="ir.ui.view">
+        <field name="name">event.tournament.category.tree</field>
+        <field name="model">event.tournament.category</field>
+        <field name="arch" type="xml">
+            <tree string="Category">
+                <field name="tournament_id" />
+                <field name="participant_ids" />
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -10,4 +10,19 @@
             </tree>
         </field>
     </record>
+
+    <record id="event_tournament_category_views_form" model="ir.ui.view">
+        <field name="name">event.tournament.category.form</field>
+        <field name="model">event.tournament.category</field>
+        <field name="arch" type="xml">
+            <sheet>
+                <div class="oe_title">
+                    <h1>Add your Category for Tournament</h1>
+                </div>
+                <group>
+                    
+                </group>
+            </sheet>
+        </field>
+    </record>
 </odoo>

@@ -15,14 +15,16 @@
         <field name="name">event.tournament.category.form</field>
         <field name="model">event.tournament.category</field>
         <field name="arch" type="xml">
-            <sheet>
-                <div class="oe_title">
-                    <h1>Add your Category for Tournament</h1>
-                </div>
-                <group>
-                    
-                </group>
-            </sheet>
+            <form string="Tournament Category">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Create new Category for Tournament</h1>
+                    </div>
+                    <group>
+                        <field name="tournament_id" />
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 </odoo>

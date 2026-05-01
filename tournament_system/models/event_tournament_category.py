@@ -6,7 +6,7 @@ class EventTournamentCategory(models.Model):
     _description='This model create the category of the tournament'
 
     tournament_id = fields.Many2one('event.tournament', string='Tournament')
-    participant_ids = fields.One2many('res.partner', 'participant_id', string='Participant')
+    participant_ids = fields.One2many('res.partner', 'tournament_category_id', string='Participant')
 
     @api.constrains('participant_ids')
     def asssigned_category(self):

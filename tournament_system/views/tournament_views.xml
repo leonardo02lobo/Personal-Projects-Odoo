@@ -8,7 +8,7 @@
     <record id="action_event_tournament_category" model="ir.actions.act_window">
         <field name="name">Tournament Category</field>
         <field name="res_model">event.tournament.category</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menu_tournament_root" name="Tournament App" sequence="10"/>

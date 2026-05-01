@@ -6,12 +6,13 @@
     'description': 'This module allows you to manage tournaments and matches for a sports event.',
     'author': 'leonardo02lobo',
     'icon': '/static/description/torneos de LOL.png',
-    'depends': ['base', 'mail'],
+    'depends': ['base', 'mail', 'contacts'],
     'data': [
         'security/ir.model.access.csv',
         'views/tournament_views.xml',
         'views/event_tournament_views.xml',
-        'views/event_tournament_category_views.xml'
+        'views/event_tournament_category_views.xml',
+        'views/event_tournament_registration_views.xml'
     ],
     'license': 'LGPL-3',
     'installable': True,

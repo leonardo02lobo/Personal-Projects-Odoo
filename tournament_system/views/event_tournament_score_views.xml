@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="event_tournament_score_tree_view" model="ir.ui.view">
+        <field name="name">event.tournament.score.tree.panel</field>
+        <field name="model">event.tournament.score</field>
+        <field name="arch" type="xml">
+            <tree string="Panel of points" editable="bottom">
+                <field name="registration_id" />
+                <field name="score" />
+                <field name="notes" optional="show"/>
+                <field name="judge_id" invisible="True"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

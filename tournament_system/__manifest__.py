@@ -12,7 +12,8 @@
         'views/tournament_views.xml',
         'views/event_tournament_views.xml',
         'views/event_tournament_category_views.xml',
-        'views/event_tournament_registration_views.xml'
+        'views/event_tournament_registration_views.xml',
+        'views/event_tournament_score_views.xml'
     ],
     'license': 'LGPL-3',
     'installable': True,

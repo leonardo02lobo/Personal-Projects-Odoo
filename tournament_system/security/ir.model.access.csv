@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
 access_event_tournament_user,event.tournament user,model_event_tournament,base.group_user,1,1,1,1
 access_event_tournament_category,access.event.tournament.category,model_event_tournament_category,base.group_user,1,1,1,1
+access_event_tournament_registration,access.event.tournament.registration,model_res_partner,base.group_user,1,1,1,1
+access_event_tournament_score,access.event.tournament.score,model_event_tournament_score,base.group_user,1,1,1,1

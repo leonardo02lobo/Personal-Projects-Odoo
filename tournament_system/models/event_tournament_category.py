@@ -1,6 +1,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
+
 class EventTournamentCategory(models.Model):
     _name='event.tournament.category'
     _description='This model create the category of the tournament'

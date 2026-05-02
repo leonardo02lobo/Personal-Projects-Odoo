@@ -28,28 +28,29 @@ class EventTournament(models.Model):
 
     def action_confirm(self):
         for record in self:
-            if record.state != 'Confirmed':
-                raise UserError(_('Only You can Confirmed tournament in Draft'))
-            
+            if record.state != 'draft':
+                raise UserError(_('Only tournaments in Draft can be confirmed.'))
+
             if not record.category_ids:
-                raise UserError(_('You cannot confirm a tournament wirhout least one category'))
+                raise UserError(_('You cannot confirm a tournament without at least one category.'))
+
+            record.write({'state': 'confirm'})
 
     def action_done(self):
         for record in self:
-            if record.state != 'In Progress':
-                raise UserError(_("You cannot Done tournament that this 'In Progress'"))
-            
+            if record.state != 'in_progress':
+                raise UserError(_("You can only finish tournaments that are In Progress."))
+
             for category in record.category_ids:
                 if not category.participant_ids:
-                    raise UserError(_("The category %s not has participant", category.name))
-                
+                    raise UserError(_("The category %s has no participants.") % category.display_name)
 
             # Agregar el modelo para calcular el porcentaje
             # here
 
-            record.write({'state': 'Done'})
+            record.write({'state': 'done'})
 
-            record.message_post(body=_("The tournament finished success. Result"))
+            record.message_post(body=_("The tournament finished successfully. Results are ready."))
     
     def _calculate_podium(self):
         for category in self.category_ids:

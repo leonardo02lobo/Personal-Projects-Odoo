@@ -54,5 +54,4 @@ class EventTournament(models.Model):
     
     def _calculate_podium(self):
         for category in self.category_ids:
-            #Here used Sorted and filter by points
             pass

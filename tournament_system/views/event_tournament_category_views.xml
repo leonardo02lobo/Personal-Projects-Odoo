@@ -6,7 +6,10 @@
         <field name="arch" type="xml">
             <tree string="Category">
                 <field name="tournament_id" />
-                <field name="participant_ids" />
+                <field name="name" />
+                <field name="age_min" />
+                <field name="age_max" />
+                <field name="participant_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
@@ -22,6 +25,10 @@
                     </div>
                     <group>
                         <field name="tournament_id" />
+                        <field name="name" />
+                        <field name="age_min" />
+                        <field name="age_max" />
+                        <field name="participant_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>
             </form>

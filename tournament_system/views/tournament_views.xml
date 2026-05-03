@@ -13,7 +13,7 @@
     <record id="action_event_tournament_score" model="ir.actions.act_window">
         <field name="name">Judge</field>
         <field name="res_model">event.tournament.score</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menu_tournament_root" name="Tournament App" sequence="10"/>
@@ -28,5 +28,6 @@
     
     <menuitem id="menu_tournament_score_list" name="Judge"
             parent="menu_tournament_root"
+            groups="tournament_system.group_tournament_judge"
             action="action_event_tournament_score"/>
 </odoo>

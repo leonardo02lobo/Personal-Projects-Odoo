@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="module_category_tournament_management" model="ir.module.category">
+        <field name="name">Gestión de Torneos</field>
+        <field name="description">Niveles de acceso para el sistema de torneos</field>
+        <field name="sequence">10</field>
+    </record>
+    
+    <record id="group_tournament_judge" model="res.groups">
+        <field name="name">Juez</field>
+        <field name="category_id" ref="module_category_tournament_management"/>
+        <!-- Opcional: Hacer que los administradores tengan este grupo por defecto -->
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

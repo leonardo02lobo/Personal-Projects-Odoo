@@ -5,9 +5,10 @@
     'summary': 'Tournament System',
     'description': 'This module allows you to manage tournaments and matches for a sports event.',
     'author': 'leonardo02lobo',
-    'icon': '/static/description/torneos de LOL.png',
+    'icon': 'static/description/torneos de LOL.png',
     'depends': ['base', 'mail', 'contacts'],
     'data': [
+        'security/security_groups.xml',
         'security/ir.model.access.csv',
         'views/tournament_views.xml',
         'views/event_tournament_views.xml',

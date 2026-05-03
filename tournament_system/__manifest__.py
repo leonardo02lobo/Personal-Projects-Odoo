@@ -5,7 +5,7 @@
     'summary': 'Tournament System',
     'description': 'This module allows you to manage tournaments and matches for a sports event.',
     'author': 'leonardo02lobo',
-    'icon': 'static/description/torneos de LOL.png',
+    'icon': '/tournament_system/static/description/icon.png',
     'depends': ['base', 'mail', 'contacts'],
     'data': [
         'security/security_groups.xml',

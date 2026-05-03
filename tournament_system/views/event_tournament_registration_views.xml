@@ -6,7 +6,9 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position="after">
-                <field name="tournament_category_id" string="Tournament Category" placeholder="Select category of tourname..."/>
+                <field name="tournament_category_id"
+                    string="Tournament Category" 
+                    placeholder="Select category of tourname..."/>
                 <field name="age" string="Age" placeholder="Age"/>
             </xpath>
         </field>

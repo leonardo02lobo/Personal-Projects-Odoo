@@ -19,5 +19,16 @@ class EventTournamentCategory(models.Model):
                 raise UserError(_("Age values cannot be negative."))
             if record.age_min >= record.age_max:
                 raise UserError(_("Minimum age must be less than maximum age."))
-            
 
+    def write(self, vals):
+        res = super().write(vals)
+
+        if 'age_min' in vals or 'age_max' in vals:
+            for category in self:
+                for participant in category.participant_ids:
+                    if not (category.age_min <= participant.age <= category.age_max):
+                        raise UserError(_(
+                            "Participant %s no longer fits in this category age range."
+                        ) % participant.display_name)
+
+        return res

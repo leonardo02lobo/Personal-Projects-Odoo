@@ -1,3 +1,4 @@
+from audioop import reverse
 from odoo import fields, models, _
 from odoo.exceptions import UserError
 
@@ -31,10 +32,22 @@ class EventTournament(models.Model):
     )
 
     def _calculate_podium(self):
-        scores = self.category_ids.participant_ids.score_ids
-        _logger.info(f"Total Scores: {scores}")
-        for score in scores:
-            _logger.info(f"Score: {score}")
+        scores_3_top = self.category_ids.participant_ids.score_ids.sorted('score', reverse=True)[:3]
+        # scores = self.category_ids.participant_ids.score_ids
+        # _logger.info(f"Top 3: {scores}")
+
+        # scores_3_top = scores.search([
+        #     ('tournament_id', 'in', )
+        # ])
+        message = ""
+        ind = 1
+        for score in scores_3_top:
+            message += _("[%s]. %s - Points: %s -- Notes: %s\n") % (
+                ind,score.participant_id.name, score.score,score.notes or ""
+            )
+            ind+=1
+        self.message_post(body=message)
+
 
     def action_confirm(self):
         self.ensure_one()
@@ -88,5 +101,6 @@ class EventTournament(models.Model):
             if not (participant.score > 0 and participant.notes != ''):
                 raise UserError(_("You cannot finisih a tournament. missing data..."))
         
-        self.write({'state': 'done'})
+        #self.write({'state': 'done'})
         self.message_post(body=_("The tournament finish"))
+        self._calculate_podium()

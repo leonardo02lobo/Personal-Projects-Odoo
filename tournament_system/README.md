@@ -15,3 +15,9 @@ Este proyecto expande los módulos base de Odoo para manejar competencias, regis
 - Wizards (Asistentes): Crear un asistente transaccional para "Avanzar a la siguiente fase" que filtre a los ganadores y genere los nuevos emparejamientos de forma automática.
 
 - Vistas: Implementar vistas Kanban personalizadas para ver el estado de los equipos y vistas Pivot para analizar estadísticas de los participantes.
+
+Falta:
+- Wizard
+- Pdfs report
+- Controllers
+- many2many: Tournaments

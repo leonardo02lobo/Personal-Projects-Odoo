@@ -4,34 +4,36 @@
         <field name="name">event.tournament.score.tree.panel</field>
         <field name="model">event.tournament.score</field>
         <field name="arch" type="xml">
-            <tree string="Panel of points">
-                <field name="participant_id" />
+            <tree string="Panel of points" editable="bottom" create="0" delete="0">
+                <field name="participant_id" readonly="True"/>
                 <field name="score" />
-                <field name="notes" optional="show"/>
-                <field name="judge_id" invisible="True"/>
+                <field name="notes" optional="show" />
             </tree>
         </field>
     </record>
 
-    <record id="event_tournament_score_form_view" model="ir.ui.view">
-        <field name="name">event.tournament.score.form</field>
+    <record id="view_tournament_score_search" model="ir.ui.view">
+        <field name="name">event.tournament.score.search</field>
         <field name="model">event.tournament.score</field>
         <field name="arch" type="xml">
-            <form string="Score Form">
-                <sheet>
-                    <div class="oe_title">
-                        <h1>Score Form</h1>
-                    </div>
-                    <group>
-                        <field name="participant_id"/>
-                        <field name="score"/>
-                    </group>
-                    <group>
-                        <field name="notes"/>
-                        <field name="judge_id"/>
-                    </group>
-                </sheet>
-            </form>
+            <search string="Filter Scores">
+                <field name="participant_id"/>
+                <field name="judge_id"/>
+                <field name="tournament_id"/>
+                <field name="tournament_category_id"/>
+                <filter string="In Progress Tournament"
+                    name="current_tournament"
+                    domain="[('tournament_id.state', '=', 'in_progress')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Tournament"
+                        name="group_by_tournament"
+                        context="{'group_by': 'tournament_id'}"/>
+                    <filter string="Category"
+                        name="group_by_category"
+                        context="{'group_by': 'tournament_category_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
 </odoo>

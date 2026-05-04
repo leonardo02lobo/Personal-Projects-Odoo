@@ -8,6 +8,11 @@ class EventTournamentRegistration(models.Model):
 
     tournament_category_id = fields.Many2one('event.tournament.category', string='Participant')
     age = fields.Integer(string='Age', store=True)
+    score_ids = fields.One2many(
+        'event.tournament.score',
+        'participant_id',
+        string='Scores',
+    )
 
     @api.model_create_multi
     def create(self, vals_list):

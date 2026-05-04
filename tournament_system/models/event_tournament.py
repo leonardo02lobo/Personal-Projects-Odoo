@@ -73,8 +73,8 @@ class EventTournament(models.Model):
         
         self.env['event.tournament.score'].create(vals_list)
 
-        record.write({'state': 'in_progress'})
-        record.message_post(body=_("The tournament finish, Scoring..."))
+        self.write({'state': 'in_progress'})
+        self.message_post(body=_("The tournament finish, Scoring..."))
 
     def action_done(self):
         self.ensure_one()
@@ -82,7 +82,11 @@ class EventTournament(models.Model):
         
         participants_exist = self.env['event.tournament.score'].search([
             ('participant_id', 'in', participants.ids)
-        ]).mapped('participant_id')
+        ])
 
         for participant in participants_exist:
-            _logger.info(f"Participant: {participant}")
+            if not (participant.score > 0 and participant.notes != ''):
+                raise UserError(_("You cannot finisih a tournament. missing data..."))
+        
+        self.write({'state': 'done'})
+        self.message_post(body=_("The tournament finish"))

@@ -1,6 +1,10 @@
 from odoo import fields, models, _
 from odoo.exceptions import UserError
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 class EventTournament(models.Model):
     _name='event.tournament'
@@ -34,6 +38,10 @@ class EventTournament(models.Model):
             if not record.category_ids:
                 raise UserError(_('You cannot confirm a tournament without at least one category.'))
 
+            for categories in record.category_ids:
+                if not categories.participant_ids:
+                    raise UserError(_("Not cannot confirm the tournament that not has participants"))
+
             record.write({'state': 'confirm'})
 
     def action_done(self):
@@ -51,7 +59,7 @@ class EventTournament(models.Model):
             record.write({'state': 'done'})
 
             record.message_post(body=_("The tournament finished successfully. Results are ready."))
-    
+
     def _calculate_podium(self):
         for category in self.category_ids:
             pass

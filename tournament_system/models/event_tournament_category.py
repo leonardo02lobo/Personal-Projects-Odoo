@@ -20,6 +20,12 @@ class EventTournamentCategory(models.Model):
             if record.age_min >= record.age_max:
                 raise UserError(_("Minimum age must be less than maximum age."))
 
+    def _check_category_range(self, categories, val_age_min):
+        for category in categories:
+            if category.age_max >= val_age_min:
+                return False
+        return True
+
     def write(self, vals):
         res = super().write(vals)
 
@@ -32,3 +38,22 @@ class EventTournamentCategory(models.Model):
                         ) % participant.display_name)
 
         return res
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            tournament_id = vals.get("tournament_id")
+            age_min = vals.get("age_min", 0)
+
+            if not tournament_id:
+                raise UserError(_("Tournament is required."))
+            if not age_min:
+                raise UserError(_("Minimum age is required."))
+
+            categories_exist = self.search([("tournament_id", "=", tournament_id)])
+            if not self._check_category_range(categories_exist, age_min):
+                raise UserError(_(
+                    "Invalid age range: the minimum age must be greater than "
+                    "the maximum age of all existing categories."
+                ))
+        return super().create(vals_list)

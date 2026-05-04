@@ -2,7 +2,7 @@
 .DS_STORE
 coverage/all
 coverage/local
-__pycache__
+__pycache__/
 venv
 coverage
 htmlcov

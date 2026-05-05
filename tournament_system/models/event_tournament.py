@@ -1,6 +1,6 @@
-from audioop import reverse
 from odoo import fields, models, _
 from odoo.exceptions import UserError
+from markupsafe import Markup
 
 import logging
 
@@ -32,21 +32,28 @@ class EventTournament(models.Model):
     )
 
     def _calculate_podium(self):
-        scores_3_top = self.category_ids.participant_ids.score_ids.sorted('score', reverse=True)[:3]
-        # scores = self.category_ids.participant_ids.score_ids
-        # _logger.info(f"Top 3: {scores}")
-
-        # scores_3_top = scores.search([
-        #     ('tournament_id', 'in', )
-        # ])
-        message = ""
-        ind = 1
-        for score in scores_3_top:
-            message += _("[%s]. %s - Points: %s -- Notes: %s\n") % (
-                ind,score.participant_id.name, score.score,score.notes or ""
-            )
-            ind+=1
-        self.message_post(body=message)
+        # Build an HTML message listing participants per category ordered by score desc
+        message_html = ""
+        for category in self.category_ids:
+            cat_name = category.name or ''
+            message_html += Markup(_("<b>Category: %s</b><br/>") % (cat_name))
+            scores = self.env['event.tournament.score'].search([
+                ('tournament_category_id', '=', category.id)
+            ], order='score desc')
+            if not scores:
+                message_html += Markup(_("&nbsp;&nbsp;- No scores available<br/>"))
+                continue
+            ind = 1
+            for sc in scores:
+                pname = Markup(sc.participant_id.name or '')
+                pnotes = Markup(sc.notes or '')
+                message_html += Markup(_("[%s]. Name: %s -- Points: %s -- Notes: %s<br/>") % (
+                    ind, pname, sc.score, pnotes
+                ))
+                ind += 1
+            message_html += Markup(_("<br/>"))
+        if message_html:
+            self.message_post(body=message_html)
 
 
     def action_confirm(self):

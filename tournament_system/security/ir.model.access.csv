@@ -1,5 +1,7 @@
 id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
-access_event_tournament_user,event.tournament user,model_event_tournament,base.group_user,1,1,1,1
-access_event_tournament_category,access.event.tournament.category,model_event_tournament_category,base.group_user,1,1,1,1
-access_event_tournament_registration,access.event.tournament.registration,model_res_partner,base.group_user,1,1,1,1
-access_event_tournament_score,access.event.tournament.score,model_event_tournament_score,base.group_user,1,1,1,1
+access_event_tournament_user,event.tournament user,model_event_tournament,tournament_system.group_tournament_manager,1,1,1,1
+access_event_tournament_registration,access.event.tournament.registration,model_res_partner,tournament_system.group_tournament_participant,1,1,0,0
+access_event_tournament_score,access.event.tournament.score,model_event_tournament_score,tournament_system.group_tournament_judge,1,1,1,0
+access_event_tournament_category_manager,access.event.tournament.category.manager,model_event_tournament_category,tournament_system.group_tournament_manager,1,1,1,0
+access_event_tournament_participant,access.event.tournament.participant,model_event_tournament,tournament_system.group_tournament_participant,0,1,0,0
+access_event_tournament_category_participant,access.event.tournament.category.participant,model_event_tournament_category,tournament_system.group_tournament_participant,0,1,0,0

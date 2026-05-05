@@ -5,7 +5,6 @@
     'summary': 'Tournament System',
     'description': 'This module allows you to manage tournaments and matches for a sports event.',
     'author': 'leonardo02lobo',
-    'icon': '/tournament_system/static/description/icon.png',
     'depends': ['base', 'mail', 'contacts'],
     'data': [
         'security/security_groups.xml',
@@ -18,5 +17,6 @@
     ],
     'license': 'LGPL-3',
     'installable': True,
-    'application': True
+    'application': True,
+    'images': ['static/description/icon.png'],
 }

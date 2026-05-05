@@ -32,7 +32,6 @@ class EventTournament(models.Model):
     )
 
     def _calculate_podium(self):
-        # Build an HTML message listing participants per category ordered by score desc
         message_html = ""
         for category in self.category_ids:
             cat_name = category.name or ''

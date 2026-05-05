@@ -14,6 +14,27 @@ class EventTournamentRegistration(models.Model):
         string='Scores',
     )
 
+    tournament_ids = fields.Many2many(
+        'event.tournament',
+        string='Torneos Inscritos',
+        compute='_compute_tournaments',
+    )
+
+    tournament_count = fields.Integer(
+        string='Cantidad de Torneos', 
+        compute='_compute_tournament_count',
+    )
+
+    @api.depends('tournament_category_id', 'tournament_category_id.tournament_id')
+    def _compute_tournament_count(self):
+        for record in self:
+            record.tournament_count = len(record.tournament_ids)
+    
+    @api.depends('tournament_category_id', 'tournament_category_id.tournament_id')
+    def _compute_tournaments(self):
+        for record in self:
+            record.tournament_ids = record.tournament_category_id.tournament_id
+
     @api.model_create_multi
     def create(self, vals_list):
         records = super().create(vals_list)

@@ -3,13 +3,27 @@
     <record id="event_tournament_registration_form_inherit_views" model="ir.ui.view">
         <field name="name">res.partner.form.inherit.tournament</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="tournament_category_id"
-                    string="Tournament Category" 
-                    placeholder="Select category of tourname..."/>
-                <field name="age" string="Age" placeholder="Age"/>
+                    string="Tournament Category"
+                    placeholder="Select category of tourname..." />
+                <field name="age" string="Age" placeholder="Age" />
+            </xpath>
+            <xpath expr="//notebook//page[@name='internal_notes']" position="after">
+                <page string="Tournaments" name="tournaments">
+                    <group>
+                        <field name="tournament_count" readonly="1" />
+                    </group>
+                    <field name="tournament_ids" widget="many2many_tags" />
+                    <field name="tournament_ids" nolabel="1">
+                        <tree>
+                            <field name="name" />
+                            <field name="state" />
+                        </tree>
+                    </field>
+                </page>
             </xpath>
         </field>
     </record>

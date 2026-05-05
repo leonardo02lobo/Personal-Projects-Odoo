@@ -20,10 +20,12 @@
     
     <menuitem id="menu_tournament_list" name="List of Tournament"
             parent="menu_tournament_root"
+            groups="tournament_system.group_tournament_manager"
             action="action_event_tournament"/>
 
     <menuitem id="menu_tournament_category_list" name="List of Category Tournament"
             parent="menu_tournament_root"
+            groups="tournament_system.group_tournament_participant"
             action="action_event_tournament_category"/>
     
     <menuitem id="menu_tournament_score_list" name="Judge"

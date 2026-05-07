@@ -138,9 +138,6 @@ class EventTournament(models.Model):
                 'message': _('Not exist tournament by id')
             }
         for tour in tournament['tournaments']:
-            company = self.env['res.partner'].search_read(
-                domain=[('id', '=', tour['company_id'][0])],
-                fields=['id','name','email','phone']
-            )
-            tour['company'] = company
+            company = self.env['res.partner'].get_partner_by_id(tour['company_id'][0])
+            tour['company'] = company['partner']
         return tournament

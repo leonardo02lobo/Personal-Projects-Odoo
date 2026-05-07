@@ -57,3 +57,38 @@ class EventTournamentCategory(models.Model):
                     "the maximum age of all existing categories."
                 ))
         return super().create(vals_list)
+    
+    def get_all_category(self):
+        category = self.search_read([])
+        return {
+            'status': 200,
+            'categories': category
+        }
+
+    def get_category_by_id(self, id=None):
+        if id is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        category = self.search_read([
+            ('id', '=', id)
+        ])
+        return {
+            'status': 200,
+            'category': category
+        }
+
+    def get_category_by_ids(self, ids=None):
+        if ids is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        category = self.search_read([
+            ('id', 'in', ids)
+        ])
+        return {
+            'status': 200,
+            'category': category
+        }

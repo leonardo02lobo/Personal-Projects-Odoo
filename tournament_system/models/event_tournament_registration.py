@@ -56,3 +56,41 @@ class EventTournamentRegistration(models.Model):
                 raise UserError(_(
                     "You cannot join this category by your age. You have to be between %s and %s years old."
                 ) % (category.age_min, category.age_max))
+
+    def get_all_partner(self):
+        partners = self.search_read(
+            fields=['id','age','score_ids', 'tournament_ids', 'tournament_count','name']
+        )
+        return {
+            'status': 200,
+            'partners': partners
+        }
+    def get_partner_by_id(self,id=id):
+        if id is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        partner = self.search_read(
+                domain=[('id', '=', id)],
+                fields=['id','age','score_ids', 'tournament_ids', 'tournament_count','name']
+            )
+        return{
+            'status': 200,
+            'partner': partner
+        }
+
+    def get_partner_by_ids(self,id=id):
+        if id is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        partners = self.search_read(
+                domain=[('id', 'in', id)],
+                fields=['id','age','score_ids', 'tournament_ids', 'tournament_count','name']
+            )
+        return{
+            'status': 200,
+            'partners': partners
+        }

@@ -49,7 +49,7 @@ class EventTournamentScore(models.Model):
                 'status': 404,
                 'message': _('Not exist tournament by id')
             }
-        score = self.search_read(['id', '=', id])
+        score = self.search_read([('id', '=', id)])
         return {
             'status': 200,
             'score': score

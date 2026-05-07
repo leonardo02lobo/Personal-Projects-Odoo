@@ -35,3 +35,34 @@ class EventTournamentScore(models.Model):
         for record in self:
             if record.score < 0:
                 raise ValidationError(_("The point has that be more a zero"))
+
+    def get_all_scores(self):
+        scores = self.search_read([])
+        return {
+            'status': 200,
+            'scores': scores
+        }
+
+    def get_score_by_id(self, id=None):
+        if id is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        score = self.search_read(['id', '=', id])
+        return {
+            'status': 200,
+            'score': score
+        }
+
+    def get_score_by_ids(self, ids=None):
+        if ids is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        scores = self.search_read([('id', 'in', ids)])
+        return {
+            'status': 200,
+            'scores': scores
+        }

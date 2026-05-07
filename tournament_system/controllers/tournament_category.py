@@ -1,5 +1,9 @@
+import json
 from odoo import http
 from odoo.http import request
+
+import logging
+_logger = logging.getLogger(__name__)
 
 class TournamentCategory(http.Controller):
     _model='event.tournament.category'
@@ -17,8 +21,8 @@ class TournamentCategory(http.Controller):
 
     @http.route(f'{_url_base}/participants/<int:category_id>', methods=['GET'], auth='public', type='http')
     def get_category_with_participants(self, category_id, **kwargs):
-        category = self.get_data_by_id(id=category_id)
-        for cat in category:
+        category = request.env[self._model].get_category_by_id(id=category_id)
+        for cat in category['category']:
             participants = request.env['res.partner'].get_partner_by_ids(cat['participant_ids'])
             cat['participants'] = participants['partners']
 
@@ -26,10 +30,12 @@ class TournamentCategory(http.Controller):
 
     @http.route(f'{_url_base}/participants/score/<int:category_id>', methods=['GET'], auth='public', type='http')
     def get_category_with_score(self, category_id, **kwargs):
-        category = self.get_data_by_id(id=category_id)
+        category = request.env[self._model].get_category_by_id(id=category_id)
         participants = self.get_category_with_participants(category_id=category_id)
-        for participant in participants:
-            scores = request.env['event.tournament.score'].get_partner_by_ids(participant['score_ids'])
-            participant['scores'] = scores['partners']
+        data = json.loads(participants.data)
+        for category in data.get('category', []):
+            for participant in category.get('participants', []):
+                scores = request.env['event.tournament.score'].get_score_by_ids(participant.get('score_ids', []))
+                participant['scores'] = scores['scores']
         return request.make_json_response(category)
                 

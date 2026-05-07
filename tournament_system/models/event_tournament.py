@@ -107,6 +107,40 @@ class EventTournament(models.Model):
             if not (participant.score > 0 and participant.notes != ''):
                 raise UserError(_("You cannot finisih a tournament. missing data..."))
         
-        #self.write({'state': 'done'})
+        self.write({'state': 'done'})
         self.message_post(body=_("The tournament finish"))
         self._calculate_podium()
+
+    def get_all_tournaments(self):
+        tournaments = self.search_read([])
+        return {
+            'status': 200,
+            'tournaments': tournaments
+        }
+
+    def get_tournament_by_id(self, id=None):
+        if id is None:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        tournament = self.search_read([('id', '=', id)])
+        return {
+            'status': 200,
+            'tournaments': tournament
+        }
+
+    def get_tournament_by_company(self, id=None):
+        tournament = self.get_tournament_by_id(id=id)
+        if not tournament:
+            return {
+                'status': 404,
+                'message': _('Not exist tournament by id')
+            }
+        for tour in tournament['tournaments']:
+            company = self.env['res.partner'].search_read(
+                domain=[('id', '=', tour['company_id'][0])],
+                fields=['id','name','email','phone']
+            )
+            tour['company'] = company
+        return tournament

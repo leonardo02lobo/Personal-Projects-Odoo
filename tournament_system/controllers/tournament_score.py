@@ -1,9 +1,8 @@
 from odoo import http
 from odoo.http import request
-from . import base_controller
 
 
-class TournamentScore(base_controller.APIController, http.Controller):
+class TournamentScore(http.Controller):
     _model = 'event.tournament.score'
     _base_url = '/api/score'
 

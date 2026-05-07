@@ -1,9 +1,8 @@
 from odoo import http
 from odoo.http import request
-from . import base_controller
 
 
-class TournamentRegistration(base_controller.APIController, http.Controller):
+class TournamentRegistration(http.Controller):
     _model='res.partner'
     _base_url='/api/registration'
 

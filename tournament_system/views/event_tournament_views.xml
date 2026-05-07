@@ -10,6 +10,7 @@
                     <button name="action_in_progress" string="Pass a judge" type="object" class="oe_highlight" invisible="state != 'confirm'"/>
                     <button name="action_done" string="Generate Points" type="object" class="oe_highlight" invisible="state != 'in_progress'"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,in_progress,done"/>
+                    <button name="action_report_pdf" string="Generate Report PDF" type='object' class="oe_highlight" invisible="state != 'done'"/>
                 </header>
                 <sheet>
                     <div class="oe_title">

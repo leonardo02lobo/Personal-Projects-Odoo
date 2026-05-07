@@ -16,7 +16,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_tournament_root" name="Tournament App" sequence="10" />
+    <menuitem id="menu_tournament_root" name="Tournament App" sequence="10" web_icon="tournament_system,static/description/icon.png"/>
     
     <menuitem id="menu_tournament_list" name="List of Tournament"
             parent="menu_tournament_root"

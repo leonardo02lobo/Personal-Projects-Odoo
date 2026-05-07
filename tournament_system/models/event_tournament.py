@@ -111,6 +111,9 @@ class EventTournament(models.Model):
         self.message_post(body=_("The tournament finish"))
         self._calculate_podium()
 
+    def action_report_pdf(self):
+        self.ensure_one()
+
     def get_all_tournaments(self):
         tournaments = self.search_read([])
         return {

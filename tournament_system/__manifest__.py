@@ -9,14 +9,24 @@
     'data': [
         'security/security_groups.xml',
         'security/ir.model.access.csv',
+        'wizard/tournament_canceld_wizard_views.xml',
         'views/tournament_views.xml',
         'views/event_tournament_views.xml',
         'views/event_tournament_category_views.xml',
         'views/event_tournament_registration_views.xml',
         'views/event_tournament_score_views.xml',
         'report/tournament_report_action.xml',
-        'report/tournament_report_template.xml'
+        'report/tournament_layout.xml',
+        'report/tournament_report_template.xml',
+        'report/tournament_category_report_template.xml',
+        'report/tournament_participant_report_template.xml',
+        'report/tournament_score_report_template.xml',
     ],
+    'assets': {
+        'web.report_assets_common': [
+            'tournament_system/static/src/css/tournament_report.css',
+        ],
+    },
     'license': 'LGPL-3',
     'installable': True,
     'application': True,

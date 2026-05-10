@@ -1,0 +1,103 @@
+<odoo>
+    <template id="report_tournament_participant_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="participant">
+                <t t-call="tournament_system.tournament_external_layout">
+                    <div class="page">
+                        <h1>Participant Profile: <span t-field="participant.name"/></h1>
+
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Age:</strong>
+                                <span t-field="participant.age"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Email:</strong>
+                                <span t-field="participant.email"/>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <strong>Phone:</strong>
+                                <span t-field="participant.phone"/>
+                            </div>
+                            <div class="col-6" t-if="participant.tournament_category_id">
+                                <strong>Current Category:</strong>
+                                <span t-field="participant.tournament_category_id.name"/>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">Enrolled Tournaments</h3>
+                        <table class="table table-sm table-bordered mt-2">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Tournament</th>
+                                    <th>Category</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="participant.tournament_ids" t-as="tournament">
+                                    <tr>
+                                        <td><span t-field="tournament.name"/></td>
+                                        <td><span t-field="participant.tournament_category_id.name"/></td>
+                                        <td><span t-field="tournament.start_date"/></td>
+                                        <td><span t-field="tournament.end_date"/></td>
+                                        <td class="text-center">
+                                            <span t-field="tournament.state"
+                                                t-options='{"widget": "badge",
+                                                    "color": {"draft": "secondary", "confirmed": "info",
+                                                              "in_progress": "warning", "done": "success",
+                                                              "cancelled": "danger"}}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr t-if="not participant.tournament_ids">
+                                    <td colspan="5" class="text-center text-muted">Not enrolled in any tournament</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="mt-4">Score History</h3>
+                        <table class="table table-sm table-bordered mt-2">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Tournament</th>
+                                    <th>Category</th>
+                                    <th>Judge</th>
+                                    <th class="text-center">Score</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="participant.score_ids" t-as="score">
+                                    <tr>
+                                        <td><span t-field="score.tournament_id.name"/></td>
+                                        <td><span t-field="score.tournament_category_id.name"/></td>
+                                        <td><span t-field="score.judge_id.name"/></td>
+                                        <td class="text-center"><span t-field="score.score"/></td>
+                                        <td><span t-field="score.notes"/></td>
+                                    </tr>
+                                </t>
+                                <tr t-if="not participant.score_ids">
+                                    <td colspan="5" class="text-center text-muted">No scores recorded</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row mt-2" t-if="participant.score_ids">
+                            <div class="col-12 text-right">
+                                <strong>
+                                    Total Score:
+                                    <span t-esc="sum(participant.score_ids.mapped('score'))"/>
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

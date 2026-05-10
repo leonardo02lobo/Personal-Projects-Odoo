@@ -2,45 +2,76 @@
     <template id="report_tournaments_results_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="tournament">
-                <t t-call="web.external_layout">
-                <div class="page">
-                    <h1>
-                        Results of Tournament: <span t-field="tournament.name"/>
-                    </h1>
-                    <div class="row mt-4">
-                        <h3 class="col-6">start_date: <span t-field="tournament.start_date"/></h3>
-                        <h3 class="col-6">end_date: <span t-field="tournament.end_date"/></h3>
+                <t t-call="tournament_system.tournament_external_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-9">
+                                <h1>Results of Tournament: <span t-field="tournament.name"/></h1>
+                            </div>
+                            <div class="col-3 text-right">
+                                <span t-field="tournament.state"
+                                    t-options='{"widget": "badge",
+                                        "color": {"draft": "secondary", "confirmed": "info",
+                                                  "in_progress": "warning", "done": "success",
+                                                  "cancelled": "danger"}}'/>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Start Date:</strong>
+                                <span t-field="tournament.start_date"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>End Date:</strong>
+                                <span t-field="tournament.end_date"/>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <strong>Company:</strong>
+                                <span t-field="tournament.company_id.name"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Total Categories:</strong>
+                                <span t-esc="len(tournament.category_ids)"/>
+                            </div>
+                        </div>
+
+                        <t t-foreach="tournament.category_ids" t-as="category">
+                            <h3 class="mt-4">
+                                <span t-field="category.name"/>
+                                <small class="text-muted ml-2">
+                                    (Ages <span t-esc="category.age_min"/> – <span t-esc="category.age_max"/>)
+                                </small>
+                            </h3>
+                            <table class="table table-sm table-bordered mt-2">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Participant</th>
+                                        <th>Age</th>
+                                        <th class="text-center">Total Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="sorted(category.participant_ids, key=lambda p: sum(p.score_ids.mapped('score')), reverse=True)" t-as="participant">
+                                        <tr>
+                                            <td><span t-esc="participant_index + 1"/></td>
+                                            <td><span t-field="participant.name"/></td>
+                                            <td><span t-field="participant.age"/></td>
+                                            <td class="text-center">
+                                                <strong><span t-esc="sum(participant.score_ids.mapped('score'))"/></strong>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr t-if="not category.participant_ids">
+                                        <td colspan="4" class="text-center text-muted">No participants registered</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
                     </div>
-                    <div class="row mt-4">
-                        <h3 class="col-6">Categories:</h3>
-                        <ul>
-                            <t t-foreach="tournament.mapped('category_ids')" t-as="category">
-                                <li><span t-field="category.name"/></li>
-                            </t>
-                        </ul>
-                    </div>
-                    <div class="row mt-4">
-                        <h3 class="col-6">Company: <span t-field="tournament.company_id.name"/></h3>
-                    </div>
-                    <table class="table table-sm mt-4">
-                        <theader>
-                            <tr>
-                                <th>Participant</th>
-                                <th>Category</th>
-                                <th>Points</th>
-                            </tr>
-                        </theader>
-                        <tbody>
-                            <t t-foreach="tournament.category_ids.mapped('participant_ids')" t-as="participant">
-                                <tr>
-                                    <td><span t-field="participant.name"/></td>
-                                    <td><span t-field="participant.tournament_category_id.name"/></td>
-                                    <td><span t-field="participant.score_ids[0].score"/></td> 
-                                </tr>
-                            </t>
-                        </tbody>
-                    </table>
-                </div>
                 </t>
             </t>
         </t>

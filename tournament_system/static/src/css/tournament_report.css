@@ -1,0 +1,117 @@
+/* ============================================================
+   Tournament System – Custom Report Styles
+   ============================================================ */
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────── */
+.tournament-layout h1 {
+    color: #1C2951;
+    border-bottom: 2px solid #D4AF37;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.tournament-layout h2 {
+    color: #1C2951;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tournament-layout h3 {
+    color: #1C2951;
+    border-left: 4px solid #D4AF37;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+/* ── TABLE HEADERS ───────────────────────────────────────── */
+.tournament-layout .table thead.thead-light th {
+    background-color: #1C2951 !important;
+    color: #ffffff !important;
+    border-color: #2C3E6B !important;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* ── TABLE ROWS ──────────────────────────────────────────── */
+.tournament-layout .table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.tournament-layout .table-bordered td,
+.tournament-layout .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+
+.tournament-layout .table tbody tr:nth-child(even) {
+    background-color: #f4f6fb;
+}
+
+.tournament-layout .table tbody tr:hover {
+    background-color: #edf0f9;
+}
+
+/* ── TABLE FOOTER ────────────────────────────────────────── */
+.tournament-layout .table tfoot tr {
+    background-color: #eef0f5;
+}
+
+.tournament-layout .table tfoot td {
+    border-top: 2px solid #D4AF37 !important;
+    color: #1C2951;
+    font-weight: 700;
+}
+
+/* ── BADGES ──────────────────────────────────────────────── */
+.tournament-layout .badge.badge-info {
+    background-color: #1C2951;
+    color: white;
+}
+
+.tournament-layout .badge.badge-secondary { background-color: #6c757d; color: white; }
+.tournament-layout .badge.badge-warning   { background-color: #D4AF37; color: #1C2951; }
+.tournament-layout .badge.badge-success   { background-color: #1a7a4a; color: white; }
+.tournament-layout .badge.badge-danger    { background-color: #c0392b; color: white; }
+
+/* ── LABEL / STRONG EMPHASIS ─────────────────────────────── */
+.tournament-layout strong {
+    color: #1C2951;
+}
+
+.tournament-layout .text-muted {
+    color: #8a96a8 !important;
+}
+
+/* ── 1st PLACE ROW HIGHLIGHT ─────────────────────────────── */
+.tournament-layout .table tbody tr.font-weight-bold td {
+    background-color: #fdf8e8;
+    color: #1C2951;
+}
+
+/* ── PAGE BREAKS ─────────────────────────────────────────── */
+.tournament-layout .article > .page {
+    page-break-after: always;
+}
+
+.tournament-layout .article > .page:last-child {
+    page-break-after: auto;
+}
+
+/* ── PRINT OVERRIDES ─────────────────────────────────────── */
+@media print {
+    .tournament-layout h1 {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .tournament-layout .table thead.thead-light th {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

@@ -18,4 +18,3 @@ Este proyecto expande los módulos base de Odoo para manejar competencias, regis
 
 Falta:
 - Wizard
-- Pdfs report

@@ -55,6 +55,13 @@ class EventTournament(models.Model):
             self.message_post(body=message_html)
 
 
+    def write(self, vals):
+        if 'state' not in vals:
+            cancelled = self.filtered(lambda t: t.state == 'cancel')
+            if cancelled:
+                raise UserError(_("You cannot edit a cancelled tournament."))
+        return super().write(vals)
+
     def action_confirm(self):
         self.ensure_one()
         for record in self:
@@ -110,6 +117,28 @@ class EventTournament(models.Model):
         self.write({'state': 'done'})
         self.message_post(body=_("The tournament finish"))
         self._calculate_podium()
+
+    def action_open_cancel_wizard(self):
+        self.ensure_one()
+        if self.state == 'done':
+            raise UserError(_("You cannot cancel a tournament that is already done."))
+        if self.state == 'cancel':
+            raise UserError(_("This tournament is already cancelled."))
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Cancel Tournament'),
+            'res_model': 'tournament.canceld.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_tournament_id': self.id,
+            },
+        }
+
+    def action_cancel(self, reason=''):
+        self.ensure_one()
+        self.write({'state': 'cancel'})
+        self.message_post(body=_("Tournament cancelled. Reason: %s") % (reason or _('No reason provided')))
 
     def action_report_pdf(self):
         self.ensure_one()

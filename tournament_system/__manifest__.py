@@ -5,7 +5,7 @@
     'summary': 'Tournament System',
     'description': 'This module allows you to manage tournaments and matches for a sports event.',
     'author': 'leonardo02lobo',
-    'depends': ['base', 'mail', 'contacts'],
+    'depends': ['base', 'mail', 'contacts', 'sale_management'],
     'data': [
         'security/security_groups.xml',
         'security/ir.model.access.csv',

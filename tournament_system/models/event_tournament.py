@@ -75,6 +75,20 @@ class EventTournament(models.Model):
                 if not categories.participant_ids:
                     raise UserError(_("Not cannot confirm the tournament that not has participants"))
 
+            record.env['sale.order'].create({
+                'partner_id': record.company_id.id,
+                'company_id': record.company_id.id,
+                'date_order': record.start_date,
+                'order_line': [
+                    (0, 0, {
+                        'product_id': product.id,
+                        'product_uom_qty': product.list_price,
+                        'name': product.name
+                    })
+                    for product in record.category_ids.product_id
+                ]
+            })
+
             record.write({'state': 'confirm'})
 
     def action_in_progress(self):
@@ -88,7 +102,7 @@ class EventTournament(models.Model):
             for category in record.category_ids:
                 if not category.participant_ids:
                     raise UserError(_("The category %s has no participants.") % category.display_name)
-            
+
         for participant in self.category_ids.participant_ids:
             vals_list.append({
                 'participant_id': participant.id,

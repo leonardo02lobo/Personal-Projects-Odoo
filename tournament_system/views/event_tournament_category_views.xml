@@ -9,6 +9,7 @@
                 <field name="name" />
                 <field name="age_min" />
                 <field name="age_max" />
+                <field name="price" />
                 <field name="participant_ids" widget="many2many_tags"/>
             </tree>
         </field>
@@ -28,6 +29,7 @@
                         <field name="name" />
                         <field name="age_min" />
                         <field name="age_max" />
+                        <field name="price" />
                         <field name="participant_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>

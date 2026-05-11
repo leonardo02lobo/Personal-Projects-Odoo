@@ -11,6 +11,12 @@ class EventTournamentCategory(models.Model):
     participant_ids = fields.One2many('res.partner', 'tournament_category_id', string='Participant')
     age_min = fields.Integer(string='Minimum Age', required=True)
     age_max = fields.Integer(string='Maximum Age', required=True)
+    price = fields.Integer(string="Price", required=True)
+    product_id = fields.Many2one('product.product', string='Product')
+
+    _sql_constraints = [
+        ('product_unique', 'unique(product_id)', 'Only one category is allowed per product.')
+    ]
 
     @api.constrains('age_min', 'age_max')
     def _check_age_range(self):
@@ -19,6 +25,12 @@ class EventTournamentCategory(models.Model):
                 raise UserError(_("Age values cannot be negative."))
             if record.age_min >= record.age_max:
                 raise UserError(_("Minimum age must be less than maximum age."))
+
+    @api.constrains('price')
+    def _check_price(self):
+        for record in self:
+            if record.price <= 0:
+                raise ValueError(_("The price must be greater than zero."))
 
     def _check_category_range(self, categories, val_age_min):
         for category in categories:
@@ -36,7 +48,6 @@ class EventTournamentCategory(models.Model):
                         raise UserError(_(
                             "Participant %s no longer fits in this category age range."
                         ) % participant.display_name)
-
         return res
 
     @api.model_create_multi
@@ -56,7 +67,19 @@ class EventTournamentCategory(models.Model):
                     "Invalid age range: the minimum age must be greater than "
                     "the maximum age of all existing categories."
                 ))
+            if not vals.get('product_id'):
+                vals['product_id'] = self._create_product_category(vals).id
         return super().create(vals_list)
+
+    def _create_product_category(self, vals):
+        return self.env['product.product'].create({
+            'name': f'Inscription of category {vals.get("name")}',
+            'type': 'service',
+            'list_price': vals.get("price"),
+            'sale_ok': True,
+            'purchase_ok': False,
+            'uom_id': self.env.ref('uom.product_uom_unit').id
+        })
     
     def get_all_category(self):
         category = self.search_read([])

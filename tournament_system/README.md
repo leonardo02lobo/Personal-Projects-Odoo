@@ -8,13 +8,10 @@ Este proyecto expande los módulos base de Odoo para manejar competencias, regis
 
 ### Retos técnicos principales:
 
-- Modelos Relacionales: Uso intensivo de One2many, Many2many y relaciones jerárquicas.
+- **Modelos Relacionales:** Uso intensivo de One2many, Many2many y relaciones jerárquicas.
 
-- Campos Computados y Constraints: Calcular la puntuación total en tiempo real usando @api.depends y validar mediante @api.constrains que un participante no exceda el límite de inscripciones.
+- **Campos Computados y Constraints:** Calcular la puntuación total en tiempo real usando `@api.depends` y validar mediante `@api.constrains` que un participante no exceda el límite de inscripciones.
 
-- Wizards (Asistentes): Crear un asistente transaccional para "Avanzar a la siguiente fase" que filtre a los ganadores y genere los nuevos emparejamientos de forma automática.
+- **Wizards (Asistentes):** Crear un asistente transaccional para "Avanzar a la siguiente fase" que filtre a los ganadores y genere los nuevos emparejamientos de forma automática.
 
-- Vistas: Implementar vistas Kanban personalizadas para ver el estado de los equipos y vistas Pivot para analizar estadísticas de los participantes.
-
-Falta:
-- Wizard
+- **Vistas:** Implementar vistas Kanban personalizadas para ver el estado de los equipos y vistas Pivot para analizar estadísticas de los participantes.

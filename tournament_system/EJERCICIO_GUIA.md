@@ -22,8 +22,12 @@ Este documento es una guía de estudio que explica, paso a paso, cómo está con
 8. [Vistas XML](#8-vistas-xml)
 9. [Controladores REST API](#9-controladores-rest-api)
 10. [Reportes PDF](#10-reportes-pdf)
-11. [Ejercicios Propuestos](#11-ejercicios-propuestos)
-12. [Pendientes y Próximos Pasos](#12-pendientes-y-próximos-pasos)
+11. [Guía de Relaciones en el ORM](#11-guía-de-relaciones-en-el-orm)
+    - [Cuándo usar cada tipo](#111-cuándo-usar-cada-tipo)
+    - [Atributos clave: ondelete, domain, context](#112-atributos-clave)
+    - [Impacto en la base de datos](#113-impacto-en-la-base-de-datos)
+12. [Ejercicios Propuestos](#12-ejercicios-propuestos)
+13. [Pendientes y Próximos Pasos](#13-pendientes-y-próximos-pasos)
 
 ---
 
@@ -362,9 +366,113 @@ El layout define la apariencia global de todos los reportes del módulo. Incluye
 
 ---
 
-## 11. Ejercicios Propuestos
+## 11. Guía de Relaciones en el ORM
 
-### Ejercicio 1: Agregar campo `description` al Torneo (Básico)
+> Esta sección resume los conceptos clave. Para la referencia completa con árbol de decisión, errores comunes y diagramas SQL, ver [`KNOWLEDGE_RELATIONSHIPS.md`](KNOWLEDGE_RELATIONSHIPS.md).
+
+### 11.1 Cuándo usar cada tipo
+
+El módulo usa los cuatro tipos de relación. Aquí están todos en contexto:
+
+| Relación | Ejemplo en el módulo | Archivo |
+|---|---|---|
+| `Many2one` | `tournament_id` en categoría → apunta a su torneo padre | `event_tournament_category.py:10` |
+| `Many2one` | `participant_id` en score → apunta al partner | `event_tournament_score.py:9` |
+| `One2many` | `category_ids` en torneo → lista de categorías | `event_tournament.py` |
+| `One2many` | `score_ids` en partner → lista de puntuaciones | `event_tournament_registration.py:11` |
+| `Many2many` | `tournament_ids` en partner → computado desde categoría | `event_tournament_registration.py:17` |
+| `related` | `tournament_id` en score → atajo a través de participante | `event_tournament_score.py:21` |
+
+**Regla de decisión rápida:**
+
+```
+¿Apunta a UN registro?          → Many2one
+¿Lista de registros hijos?      → One2many  (requiere Many2one inverso en el hijo)
+¿Relación N:M bidireccional?    → Many2many (crea tabla intermedia)
+¿Shortcut a través de relación? → related   (+ store=True si se filtra frecuentemente)
+```
+
+### 11.2 Atributos Clave
+
+#### `ondelete` — qué pasa al borrar el padre
+
+```python
+# cascade: el hijo se borra con el padre
+tournament_id = fields.Many2one('event.tournament', ondelete='cascade')
+
+# set null: el campo queda vacío (requiere que no sea required)
+tournament_category_id = fields.Many2one('event.tournament.category', ondelete='set null')
+
+# restrict: impide borrar el padre si tiene hijos (default para required=True)
+company_id = fields.Many2one('res.company', required=True)  # implícitamente restrict
+```
+
+| Valor | Cuándo usarlo |
+|---|---|
+| `'cascade'` | El hijo no tiene sentido sin el padre (ej. líneas de una orden) |
+| `'set null'` | El hijo puede existir sin padre (campo opcional) |
+| `'restrict'` | La integridad es crítica (no se puede borrar si hay dependientes) |
+
+#### `domain` — filtrar opciones en la UI
+
+```python
+# Solo muestra partners que ya tienen categoría asignada
+participant_id = fields.Many2one(
+    'res.partner',
+    domain="[('tournament_category_id', '!=', False)]"
+)
+```
+
+> **Importante:** `domain` es una restricción de UI, no del ORM. Para validación real en código, usa `@api.constrains`.
+
+#### `context` — pasar valores a vistas relacionadas
+
+```python
+# Pre-rellena el torneo al crear un score desde el formulario del torneo
+action = {
+    'res_model': 'event.tournament.score',
+    'context': {
+        'default_tournament_id': self.id,          # pre-rellena el campo
+        'search_default_tournament_id': self.id,   # activa el filtro
+    }
+}
+```
+
+### 11.3 Impacto en la Base de Datos
+
+| Tipo de campo | ¿Crea columna? | ¿Crea tabla? | Ejemplo en el módulo |
+|---|:---:|:---:|---|
+| `Many2one` | Sí (FK integer) | No | `tournament_id` en `event_tournament_category` |
+| `One2many` | No (virtual) | No | `category_ids` en `event.tournament` |
+| `Many2many` regular | No | Sí (intermedia) | — |
+| `Many2many` computado | No | No | `tournament_ids` en `res.partner` |
+| `related` sin `store` | No | No | — |
+| `related` con `store=True` | Sí (desnormalizada) | No | `tournament_id` en `event.tournament.score` |
+
+**El trade-off de `store=True` en campos `related`:**
+
+Sin `store=True`, leer `tournament_id` en un score requiere navegar:
+`score → participant_id → tournament_category_id → tournament_id` (2 JOINs extra).
+
+Con `store=True` + `index=True`, el valor vive directamente en la tabla del score:
+
+```python
+tournament_id = fields.Many2one(
+    "event.tournament",
+    related="participant_id.tournament_category_id.tournament_id",
+    store=True,   # guarda el valor en la tabla event_tournament_score
+    index=True,   # crea un índice B-tree para búsquedas rápidas
+    readonly=True,
+)
+```
+
+Costo: espacio extra en disco + un UPDATE adicional cuando cambia la categoría del participante. Vale la pena cuando el campo se usa en dominios de búsqueda o vistas de lista frecuentes.
+
+---
+
+## 12. Ejercicios Propuestos
+
+### Ejercicio 1: Agregar campo `description` al Torneo (Básico)  
 
 **Objetivo:** Practicar la adición de campos y su uso en vistas.
 
@@ -402,7 +510,19 @@ Crea `wizards/tournament_advance_wizard.py` con un `TransientModel` llamado `tou
 
 ---
 
-### Ejercicio 5: Endpoint POST para crear torneos (Avanzado)
+### Ejercicio 5: Relaciones con atributos explícitos (Intermedio)
+
+**Objetivo:** Practicar `ondelete`, `domain` y `context` en campos relacionales.
+
+1. En `event_tournament_score.py`, agrega `ondelete='cascade'` a `participant_id`. Verifica que al borrar un partner (desde SQL o shell Odoo) sus scores se borren en cascada.
+2. En `event_tournament_category.py`, agrega `ondelete='restrict'` a `tournament_id`. Verifica que no puedes borrar un torneo que tenga categorías.
+3. En la vista form del torneo, agrega `context="{'default_tournament_id': active_id}"` al botón que abre la lista de scores, para que el torneo se pre-rellene al crear uno nuevo.
+
+> **Pregunta de reflexión:** ¿Por qué `judge_id` en `EventTournamentScore` no necesita `ondelete='cascade'`? ¿Qué pasa si un usuario juez es eliminado del sistema?
+
+---
+
+### Ejercicio 6: Endpoint POST para crear torneos (Avanzado)
 
 **Objetivo:** Extender la API REST con métodos de escritura.
 
@@ -412,7 +532,7 @@ Agrega una ruta `POST /api/tournaments` con `auth='user'` y `type='json'`. El m�
 
 ---
 
-## 12. Pendientes y Próximos Pasos
+## 13. Pendientes y Próximos Pasos
 
 Según el `README.md` original, el módulo tiene estos pendientes:
 

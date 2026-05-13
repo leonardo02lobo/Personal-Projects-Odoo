@@ -1,0 +1,1054 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tournament_system
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e-20260421\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-11 20:56+0000\n"
+"PO-Revision-Date: 2026-05-11 20:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "&nbsp;&nbsp;- No scores available<br/>"
+msgstr "&nbsp;&nbsp;- No hay puntajes disponibles<br/>"
+
+#. module: tournament_system
+#: model:ir.actions.report,print_report_name:tournament_system.action_report_tournament_category_results
+msgid "'Category Results - %s' % (object.name)"
+msgstr "'Resultados de la categoría - %s' % (object.name)"
+
+#. module: tournament_system
+#: model:ir.actions.report,print_report_name:tournament_system.action_report_tournament_participant
+msgid "'Participant - %s' % (object.name)"
+msgstr "'Participante - %s' % (object.name)"
+
+#. module: tournament_system
+#: model:ir.actions.report,print_report_name:tournament_system.action_report_tournaments_results
+msgid "'Results - %s' % (object.name)"
+msgstr "'Resultados - %s' % (object.name)"
+
+#. module: tournament_system
+#: model:ir.actions.report,print_report_name:tournament_system.action_report_tournament_score
+msgid "'Score Report'"
+msgstr "'Reporte de puntajes'"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "(Ages"
+msgstr "(Edades"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "<b>Category: %s</b><br/>"
+msgstr "<b>Categoría: %s</b><br/>"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "<br/>"
+msgstr "<br/>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_external_layout
+msgid ""
+"<span style=\"font-size:10px; color:#D4AF37; letter-spacing:3px;\">★ ★ "
+"★</span>"
+msgstr "<span style=\"font-size:10px; color:#D4AF37; letter-spacing:3px;\">★ ★ ★</span>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_external_layout
+msgid ""
+"<span style=\"font-size:13px; font-weight:700; letter-spacing:1.5px; color:#D4AF37;\">TOURNAMENT</span>\n"
+"                            <br/>\n"
+"                            <span style=\"font-size:8px; font-weight:400; letter-spacing:4px; color:rgba(255,255,255,0.65); margin-left:44px;\">SYSTEM</span>"
+msgstr ""
+"<span style=\"font-size:13px; font-weight:700; letter-spacing:1.5px; color:#D4AF37;\">TORNEO</span>\n"
+"                            <br/>\n"
+"                            <span style=\"font-size:8px; font-weight:400; letter-spacing:4px; color:rgba(255,255,255,0.65); margin-left:44px;\">SISTEMA</span>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_external_layout
+msgid ""
+"<span style=\"font-size:18px; color:#D4AF37; font-weight:900; letter-spacing:2px;\">T</span>\n"
+"                                <span style=\"font-size:18px; color:#D4AF37; font-weight:900;\">S</span>"
+msgstr ""
+"<span style=\"font-size:18px; color:#D4AF37; font-weight:900; letter-spacing:2px;\">T</span>\n"
+"                                <span style=\"font-size:18px; color:#D4AF37; font-weight:900;\">S</span>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_external_layout
+msgid ""
+"<span style=\"font-size:7px; color:rgba(255,255,255,0.55); letter-"
+"spacing:1px; display:block; text-transform:uppercase;\">Generated</span>"
+msgstr ""
+"<span style=\"font-size:7px; color:rgba(255,255,255,0.55); letter-spacing:1px; display:block; text-transform:uppercase;\">Generado</span>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_external_layout
+msgid ""
+"<span style=\"font-size:8px; color:rgba(255,255,255,0.65);\">\n"
+"                                Tournament System\n"
+"                                 | \n"
+"                                Page <span class=\"page\"/> / <span class=\"topage\"/>\n"
+"                            </span>"
+msgstr ""
+"<span style=\"font-size:8px; color:rgba(255,255,255,0.65);\">\n"
+"                                Torneo System\n"
+"                                 | \n"
+"                                Página <span class=\"page\"/> / <span class=\"topage\"/>\n"
+"                            </span>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "<strong>Age:</strong>"
+msgstr "<strong>Edad:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "<strong>Company:</strong>"
+msgstr "<strong>Empresa:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "<strong>Current Category:</strong>"
+msgstr "<strong>Categoría actual:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "<strong>Email:</strong>"
+msgstr "<strong>Email:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "<strong>End Date:</strong>"
+msgstr "<strong>Fecha de fin:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_account
+msgid "<strong>Official Tournament Registration:</strong>"
+msgstr "<strong>Registro oficial de torneo:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "<strong>Phone:</strong>"
+msgstr "<strong>Teléfono:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "<strong>Start Date:</strong>"
+msgstr "<strong>Fecha de inicio:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "<strong>Total Categories:</strong>"
+msgstr "<strong>Total de categorías:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+msgid "<strong>Total Participants:</strong>"
+msgstr "<strong>Total de participantes:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+msgid "<strong>Total Records:</strong>"
+msgstr "<strong>Total de registros:</strong>"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+msgid "<strong>Tournament:</strong>"
+msgstr "<strong>Torneo:</strong>"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_res_partner__age
+#: model:ir.model.fields,field_description:tournament_system.field_res_users__age
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_registration_form_inherit_views
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "Age"
+msgstr "Edad"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid "Age values cannot be negative."
+msgstr "Los valores de edad no pueden ser negativos."
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+msgid "Ages"
+msgstr "Edades"
+
+#. module: tournament_system
+#: model:ir.module.category,description:tournament_system.module_category_tournament_management
+msgid "All the Level of the tournaments"
+msgstr "Todos los niveles de los torneos"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de adjuntos"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_canceld_wizard_views
+#, python-format
+msgid "Cancel Tournament"
+msgstr "Cancelar torneo"
+
+#. module: tournament_system
+#: model:ir.model.fields.selection,name:tournament_system.selection__event_tournament__state__cancel
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_res_partner__tournament_count
+#: model:ir.model.fields,field_description:tournament_system.field_res_users__tournament_count
+msgid "Cantidad de Torneos"
+msgstr "Cantidad de torneos"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__category_ids
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__tournament_category_id
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_category_views_tree
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.view_tournament_score_search
+msgid "Category"
+msgstr "Categoría"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+msgid "Category:"
+msgstr "Categoría:"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: tournament_system
+#: model:ir.model.fields.selection,name:tournament_system.selection__event_tournament__state__confirm
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_category_views_form
+msgid "Create new Category for Tournament"
+msgstr "Crear nueva categoría para torneo"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__create_uid
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__create_uid
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__create_uid
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__create_date
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__create_date
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__create_date
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__notes
+msgid "Description"
+msgstr "Descripción"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__display_name
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__display_name
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__display_name
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: tournament_system
+#: model:ir.model.fields.selection,name:tournament_system.selection__event_tournament__state__done
+msgid "Done"
+msgstr "Completado"
+
+#. module: tournament_system
+#: model:ir.model.fields.selection,name:tournament_system.selection__event_tournament__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+msgid "Ej. Tournament of Soccer"
+msgstr "Ej. Torneo de fútbol"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__end_date
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "End Date"
+msgstr "Fecha de fin"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Enrolled Tournaments"
+msgstr "Torneos inscritos"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.view_tournament_score_search
+msgid "Filter Scores"
+msgstr "Filtrar puntajes"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font Awesome, ej. fa-tasks"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+msgid "Generate Points"
+msgstr "Generar puntos"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+msgid "Generate Report PDF"
+msgstr "Generar reporte PDF"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.view_tournament_score_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__id
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__id
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__id
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los nuevos mensajes requieren tu atención."
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__message_has_error
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
+
+#. module: tournament_system
+#: model:ir.model.fields.selection,name:tournament_system.selection__event_tournament__state__in_progress
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.view_tournament_score_search
+msgid "In Progress Tournament"
+msgstr "Torneo en progreso"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid ""
+"Invalid age range: the minimum age must be greater than the maximum age of "
+"all existing categories."
+msgstr ""
+"Rango de edad inválido: la edad mínima debe ser mayor que la edad máxima de todas las categorías existentes."
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: tournament_system
+#: model:ir.actions.act_window,name:tournament_system.action_event_tournament_score
+#: model:ir.ui.menu,name:tournament_system.menu_tournament_score_list
+#: model:res.groups,name:tournament_system.group_tournament_judge
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+msgid "Judge"
+msgstr "Juez"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__write_uid
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__write_uid
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__write_uid
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__write_date
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__write_date
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__write_date
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: tournament_system
+#: model:ir.ui.menu,name:tournament_system.menu_tournament_category_list
+msgid "List of Category Tournament"
+msgstr "Lista de categorías de torneos"
+
+#. module: tournament_system
+#: model:ir.ui.menu,name:tournament_system.menu_tournament_list
+msgid "List of Tournament"
+msgstr "Lista de torneos"
+
+#. module: tournament_system
+#: model:res.groups,name:tournament_system.group_tournament_manager
+msgid "Manage Tournament"
+msgstr "Gestionar torneo"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__age_max
+msgid "Maximum Age"
+msgstr "Edad máxima"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega de mensaje"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__age_min
+msgid "Minimum Age"
+msgstr "Edad mínima"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid "Minimum age is required."
+msgstr "La edad mínima es requerida."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid "Minimum age must be less than maximum age."
+msgstr ""
+"La edad mínima debe ser menor que la edad máxima."
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Mi plazo de actividad"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__name
+msgid "Name Tournament"
+msgstr "Nombre del torneo"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__name
+msgid "Name of Category"
+msgstr "Nombre de la categoría"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próximo plazo de actividad"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la próxima actividad"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de próxima actividad"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "No participants registered"
+msgstr "No hay participantes registrados"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "No reason provided"
+msgstr "No se proporcionó ninguna razón"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "No scores recorded"
+msgstr "No hay puntajes registrados"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/wizard/tournament_canceld_wizard.py:0
+#, python-format
+msgid "No tournament linked to this wizard."
+msgstr "No hay torneo vinculado a este asistente."
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_canceld_wizard_views
+msgid "No, Go Back"
+msgstr "No, Volver atrás"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "Not cannot confirm the tournament that not has participants"
+msgstr ""
+"No se puede confirmar el torneo que no tiene participantes"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Not enrolled in any tournament"
+msgstr ""
+"No está inscrito en ningún torneo"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#: code:addons/tournament_system/models/event_tournament.py:0
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#: code:addons/tournament_system/models/event_tournament_registration.py:0
+#: code:addons/tournament_system/models/event_tournament_registration.py:0
+#: code:addons/tournament_system/models/event_tournament_score.py:0
+#: code:addons/tournament_system/models/event_tournament_score.py:0
+#, python-format
+msgid "Not exist tournament by id"
+msgstr "No existe torneo por ID"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__reason
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+msgid "Notes"
+msgstr "Notas"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensajes que requieren acción"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: tournament_system
+#: model:ir.model.constraint,message:tournament_system.constraint_event_tournament_category_product_unique
+msgid "Only one category is allowed per product."
+msgstr ""
+"Solo se permite una categoría por producto."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "Only tournaments in Draft can be confirmed."
+msgstr ""
+"Solo se pueden confirmar torneos en estado borrador."
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_score_tree_view
+msgid "Panel of points"
+msgstr "Panel de puntajes"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__participant_ids
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__participant_id
+#: model:ir.model.fields,field_description:tournament_system.field_res_partner__tournament_category_id
+#: model:ir.model.fields,field_description:tournament_system.field_res_users__tournament_category_id
+#: model:res.groups,name:tournament_system.group_tournament_participant
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "Participant"
+msgstr "Participante"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid "Participant %s no longer fits in this category age range."
+msgstr ""
+"Participante %s ya no encaja en este rango de edad de la categoría."
+
+#. module: tournament_system
+#: model:ir.actions.report,name:tournament_system.action_report_tournament_participant
+msgid "Participant Profile"
+msgstr "Perfil del participante"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Participant Profile:"
+msgstr "Perfil del participante:"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+msgid "Participants Ranking"
+msgstr "Ranking de participantes"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+msgid "Pass a judge"
+msgstr "Pasar a juez"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__score
+msgid "Points"
+msgstr "Puntos"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__price
+msgid "Price"
+msgstr "Precio"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: tournament_system
+#: model:ir.model,name:tournament_system.model_product_product
+msgid "Product Variant"
+msgstr "Variante del producto"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_canceld_wizard_views
+msgid "Reason for cancellation..."
+msgstr "Razón para cancelar..."
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: tournament_system
+#: model:ir.actions.report,name:tournament_system.action_report_tournament_category_results
+msgid "Results of Category"
+msgstr "Resultados de la categoría"
+
+#. module: tournament_system
+#: model:ir.actions.report,name:tournament_system.action_report_tournaments_results
+msgid "Results of Tournament"
+msgstr "Resultados del torneo"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "Results of Tournament:"
+msgstr "Resultados del torneo:"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+msgid "Score"
+msgstr "Puntaje"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+msgid "Score Detail"
+msgstr "Detalle de puntaje"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Score History"
+msgstr "Historial de puntajes"
+
+#. module: tournament_system
+#: model:ir.actions.report,name:tournament_system.action_report_tournament_score
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+msgid "Score Report"
+msgstr "Reporte de puntajes"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_res_partner__score_ids
+#: model:ir.model.fields,field_description:tournament_system.field_res_users__score_ids
+msgid "Scores"
+msgstr "Puntajes"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_registration_form_inherit_views
+msgid "Select category of tourname..."
+msgstr "Seleccionar categoría de torneo..."
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__start_date
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__state
+msgid "State"
+msgstr "Estado"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Status"
+msgstr "Estado"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencido: La fecha de vencimiento ya ha pasado\n"
+"Hoy: La fecha de actividad es hoy\n"
+"Planificado: Actividades futuras."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "The category %s has no participants."
+msgstr ""
+"No hay participantes en la categoría %s."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_score.py:0
+#, python-format
+msgid "The point has that be less than 100"
+msgstr "El puntaje debe ser menor que 100"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_score.py:0
+#, python-format
+msgid "The point has that be more a zero"
+msgstr "El puntaje debe ser mayor que cero"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid "The price must be greater than zero."
+msgstr ""
+"El precio debe ser mayor que cero."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "The tournament finish"
+msgstr "El torneo ha finalizado"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "The tournament finish, Scoring..."
+msgstr ""
+"El torneo ha finalizado, Calculando puntajes..."
+
+#. module: tournament_system
+#: model:ir.model,name:tournament_system.model_event_tournament_category
+msgid "This model create the category of the tournament"
+msgstr ""
+"Este modelo crea la categoría del torneo"
+
+#. module: tournament_system
+#: model:ir.model,name:tournament_system.model_event_tournament
+msgid "This model is for manager the tournament of event"
+msgstr ""
+"Este modelo es para gestionar el torneo de eventos"
+
+#. module: tournament_system
+#: model:ir.model,name:tournament_system.model_event_tournament_score
+msgid "This model is for the points of the user registrate by tournament"
+msgstr ""
+"Este modelo es para los puntajes del usuario registrado por torneo"
+
+#. module: tournament_system
+#: model:ir.model,name:tournament_system.model_res_partner
+msgid "This model is the assigned for manage the diferent rules of users"
+msgstr "Este modelo es el asignado para gestionar las diferentes reglas de los usuarios"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "This tournament is already cancelled."
+msgstr "Este torneo ya ha sido cancelado."
+
+#. module: tournament_system
+#: model:ir.model,name:tournament_system.model_tournament_canceld_wizard
+msgid "This wizard be use for question if you want canceld"
+msgstr ""
+"Este asistente se usa para preguntar si quieres cancelar el torneo"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_res_partner__tournament_ids
+#: model:ir.model.fields,field_description:tournament_system.field_res_users__tournament_ids
+msgid "Torneos Inscritos"
+msgstr "Torneos Inscritos"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_category_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournaments_results_template
+msgid "Total Score"
+msgstr "Total de Puntajes"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+msgid "Total Score Sum:"
+msgstr "Total de Puntajes Sumados:"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+msgid "Total Score:"
+msgstr ""
+"Total de Puntajes:"
+
+#. module: tournament_system
+#: model:ir.actions.act_window,name:tournament_system.action_event_tournament
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_category__tournament_id
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__tournament_id
+#: model:ir.model.fields,field_description:tournament_system.field_tournament_canceld_wizard__tournament_id
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_form
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_participant_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.report_tournament_score_template
+#: model_terms:ir.ui.view,arch_db:tournament_system.view_tournament_score_search
+msgid "Tournament"
+msgstr "Torneo"
+
+#. module: tournament_system
+#: model:ir.ui.menu,name:tournament_system.menu_tournament_root
+msgid "Tournament App"
+msgstr "Aplicación de Torneos"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_product_product__tournament_category_ids
+msgid "Tournament Categories"
+msgstr "Categorías de Torneos"
+
+#. module: tournament_system
+#: model:ir.actions.act_window,name:tournament_system.action_event_tournament_category
+#: model:ir.model.fields,field_description:tournament_system.field_product_product__tournament_category_name
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_category_views_form
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_registration_form_inherit_views
+msgid "Tournament Category"
+msgstr "Categoría de Torneo"
+
+#. module: tournament_system
+#: model:ir.module.category,name:tournament_system.module_category_tournament_management
+msgid "Tournament Manager"
+msgstr "Gestor de Torneos"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_view_tree
+msgid "Tournament System"
+msgstr "Sistema de Torneos"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "Tournament cancelled. Reason: %s"
+msgstr ""
+"Torneo cancelado. Razón: %s"
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_category.py:0
+#, python-format
+msgid "Tournament is required."
+msgstr ""
+"El torneo es requerido."
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.event_tournament_registration_form_inherit_views
+msgid "Tournaments"
+msgstr "Torneos"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+"Tipo de la excepción de actividad en el registro."
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes de la web"
+
+#. module: tournament_system
+#: model:ir.model.fields,help:tournament_system.field_event_tournament__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación de la web"
+
+#. module: tournament_system
+#: model_terms:ir.ui.view,arch_db:tournament_system.tournament_canceld_wizard_views
+msgid "Yes, Cancel Tournament"
+msgstr ""
+"Si está marcado, los nuevos mensajes requieren tu atención."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "You can only finish tournaments that are In Progress."
+msgstr ""
+"Solo puedes finalizar torneos que estén en progreso."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "You cannot cancel a tournament that is already done."
+msgstr ""
+"No puedes cancelar un torneo que ya ha finalizado."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "You cannot confirm a tournament without at least one category."
+msgstr ""
+"No puedes confirmar un torneo sin al menos una categoría."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "You cannot edit a cancelled tournament."
+msgstr ""
+"No puedes editar un torneo cancelado."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "You cannot finisih a tournament. missing data..."
+msgstr ""
+"No puedes finalizar un torneo. Faltan datos..."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament_registration.py:0
+#, python-format
+msgid ""
+"You cannot join this category by your age. You have to be between %s and %s "
+"years old."
+msgstr ""
+"No puedes inscribirte en esta categoría por tu edad. Tienes que estar entre %s y %s años."
+
+#. module: tournament_system
+#. odoo-python
+#: code:addons/tournament_system/models/event_tournament.py:0
+#, python-format
+msgid "[%s]. Name: %s -- Points: %s -- Notes: %s<br/>"
+msgstr ""
+"[%s]. Nombre: %s -- Puntos: %s -- Notas: %s<br/>"
+
+#. module: tournament_system
+#: model:ir.model.fields,field_description:tournament_system.field_event_tournament_score__judge_id
+msgid "judge"
+msgstr "juez"

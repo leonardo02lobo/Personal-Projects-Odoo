@@ -5,7 +5,7 @@
     'summary': 'Tournament System',
     'description': 'This module allows you to manage tournaments and matches for a sports event.',
     'author': 'leonardo02lobo',
-    'depends': ['base', 'mail', 'contacts', 'sale_management'],
+    'depends': ['base', 'mail', 'contacts', 'sale_management', 'account'],
     'data': [
         'security/security_groups.xml',
         'security/ir.model.access.csv',
@@ -21,6 +21,7 @@
         'report/tournament_category_report_template.xml',
         'report/tournament_participant_report_template.xml',
         'report/tournament_score_report_template.xml',
+        'report/report_invoice_inherit.xml',
     ],
     'assets': {
         'web.report_assets_common': [

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_tournament_account" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='informations']" position="before">
+        <t t-set="tournaments" t-value="o.invoice_line_ids.mapped('product_id.tournament_category_ids.tournament_id')" />
+            <div t-if="tournaments" class="row mt-4 mb-4">
+                <div class="col-12 text-center" style="background-color: #f8f9fa; border-radius: 5px; padding: 10px;">
+                    <strong>Official Tournament Registration:</strong>
+                    <span t-field="tournaments.name" style="font-size: 1.2em;"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -35,6 +35,8 @@ class EventTournamentScore(models.Model):
         for record in self:
             if record.score < 0:
                 raise ValidationError(_("The point has that be more a zero"))
+            if record.score > 100:  
+                raise ValidationError(_("The point has that be less than 100"))
 
     def get_all_scores(self):
         scores = self.search_read([])

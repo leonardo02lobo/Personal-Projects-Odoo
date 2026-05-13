@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="module_category_tournament_management" model="ir.module.category">
+        <field name="name">Tournament Manager</field>
+        <field name="description">All the Level of the tournaments</field>
+        <field name="sequence">10</field>
+    </record>
+    
+    <record id="group_tournament_participant" model="res.groups">
+        <field name="name">Participant</field>
+        <field name="category_id" ref="module_category_tournament_management"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    
+    <record id="group_tournament_judge" model="res.groups">
+        <field name="name">Judge</field>
+        <field name="category_id" ref="module_category_tournament_management"/>
+        <field name="implied_ids" eval="[(4, ref('group_tournament_participant'))]"/>
+    </record>
+
+    <record id="group_tournament_manager" model="res.groups">
+        <field name="name">Manage Tournament</field>
+        <field name="category_id" ref="module_category_tournament_management"/>
+        <field name="implied_ids" eval="[(4, ref('group_tournament_judge'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

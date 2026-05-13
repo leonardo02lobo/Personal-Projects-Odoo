@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="tournament_external_layout" name="Tournament External Layout">
+        <t t-set="o_company" t-value="company or env.company"/>
+        <div class="article tournament-layout">
+
+            <!-- ╔══════════════════════════════════════════╗ -->
+            <!-- ║              CUSTOM HEADER               ║ -->
+            <!-- ╚══════════════════════════════════════════╝ -->
+            <div class="header o_header_footer">
+                <table width="100%" cellpadding="0" cellspacing="0"
+                       style="border-collapse:collapse; background-color:#1C2951; color:#FFFFFF;">
+                    <tr>
+                        <!-- Brand column -->
+                        <td width="38%" style="padding:11px 16px; vertical-align:middle;">
+                            <div style="display:inline-block; border-right:2px solid #D4AF37; padding-right:10px; margin-right:8px;">
+                                <span style="font-size:18px; color:#D4AF37; font-weight:900; letter-spacing:2px;">T</span>
+                                <span style="font-size:18px; color:#D4AF37; font-weight:900;">S</span>
+                            </div>
+                            <span style="font-size:13px; font-weight:700; letter-spacing:1.5px; color:#D4AF37;">TOURNAMENT</span>
+                            <br/>
+                            <span style="font-size:8px; font-weight:400; letter-spacing:4px; color:rgba(255,255,255,0.65); margin-left:44px;">SYSTEM</span>
+                        </td>
+
+                        <!-- Company column -->
+                        <td width="37%" style="padding:8px 16px; vertical-align:middle; text-align:center;">
+                            <t t-if="o_company">
+                                <t t-if="o_company.logo">
+                                    <img t-att-src="image_data_uri(o_company.logo)"
+                                         style="max-height:36px; max-width:110px; display:block; margin:0 auto 4px; filter:brightness(0) invert(1); opacity:0.9;"/>
+                                </t>
+                                <span style="font-size:11px; font-weight:600; color:#FFFFFF; letter-spacing:0.5px;"
+                                      t-esc="o_company.name"/>
+                            </t>
+                        </td>
+
+                        <!-- Date column -->
+                        <td width="25%" style="padding:11px 16px; vertical-align:middle; text-align:right;">
+                            <span style="font-size:7px; color:rgba(255,255,255,0.55); letter-spacing:1px; display:block; text-transform:uppercase;">Generated</span>
+                            <span style="font-size:12px; font-weight:700; color:#D4AF37; letter-spacing:0.5px;"
+                                  t-esc="time.strftime('%d / %m / %Y')"/>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Gold accent bar -->
+                <div style="height:4px; background-color:#D4AF37; width:100%;"></div>
+                <!-- Thin dark separator -->
+                <div style="height:1px; background-color:#0d1a38; width:100%;"></div>
+            </div>
+
+            <!-- SPACING below header -->
+            <div class="page_header_spacing"/>
+
+            <!-- ╔══════════════════════════════════════════╗ -->
+            <!-- ║                 CONTENT                  ║ -->
+            <!-- ╚══════════════════════════════════════════╝ -->
+            <div class="article">
+                <t t-raw="0"/>
+            </div>
+
+            <!-- ╔══════════════════════════════════════════╗ -->
+            <!-- ║              CUSTOM FOOTER               ║ -->
+            <!-- ╚══════════════════════════════════════════╝ -->
+            <div class="footer o_header_footer">
+                <!-- Thin dark separator -->
+                <div style="height:1px; background-color:#0d1a38; width:100%;"></div>
+                <!-- Gold accent bar -->
+                <div style="height:3px; background-color:#D4AF37; width:100%;"></div>
+
+                <table width="100%" cellpadding="0" cellspacing="0"
+                       style="border-collapse:collapse; background-color:#1C2951;">
+                    <tr>
+                        <!-- Company info -->
+                        <td width="45%" style="padding:5px 16px; vertical-align:middle;">
+                            <span style="font-size:8px; color:rgba(255,255,255,0.65);">
+                                <t t-if="o_company">
+                                    <t t-esc="o_company.name"/>
+                                    <t t-if="o_company.website">
+                                        &#160;&#124;&#160;<t t-esc="o_company.website"/>
+                                    </t>
+                                </t>
+                            </span>
+                        </td>
+
+                        <!-- Center decoration -->
+                        <td width="10%" style="padding:5px 16px; vertical-align:middle; text-align:center;">
+                            <span style="font-size:10px; color:#D4AF37; letter-spacing:3px;">&#9733; &#9733; &#9733;</span>
+                        </td>
+
+                        <!-- Page number -->
+                        <td width="45%" style="padding:5px 16px; vertical-align:middle; text-align:right;">
+                            <span style="font-size:8px; color:rgba(255,255,255,0.65);">
+                                Tournament System
+                                &#160;&#124;&#160;
+                                Page&#160;<span class="page"/>&#160;/&#160;<span class="topage"/>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </template>
+</odoo>

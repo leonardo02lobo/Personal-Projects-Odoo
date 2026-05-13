@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_event_tournament" model="ir.actions.act_window">
+        <field name="name">Tournament</field>
+        <field name="res_model">event.tournament</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_event_tournament_category" model="ir.actions.act_window">
+        <field name="name">Tournament Category</field>
+        <field name="res_model">event.tournament.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_event_tournament_score" model="ir.actions.act_window">
+        <field name="name">Judge</field>
+        <field name="res_model">event.tournament.score</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_tournament_root" name="Tournament App" sequence="10" web_icon="tournament_system,static/description/icon.png"/>
+    
+    <menuitem id="menu_tournament_list" name="List of Tournament"
+            parent="menu_tournament_root"
+            groups="tournament_system.group_tournament_manager"
+            action="action_event_tournament"/>
+
+    <menuitem id="menu_tournament_category_list" name="List of Category Tournament"
+            parent="menu_tournament_root"
+            groups="tournament_system.group_tournament_participant"
+            action="action_event_tournament_category"/>
+    
+    <menuitem id="menu_tournament_score_list" name="Judge"
+            parent="menu_tournament_root"
+            groups="tournament_system.group_tournament_judge"
+            action="action_event_tournament_score"/>
+</odoo>

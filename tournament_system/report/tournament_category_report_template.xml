@@ -1,0 +1,107 @@
+<odoo>
+    <template id="report_tournament_category_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="category">
+                <t t-call="tournament_system.tournament_external_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-9">
+                                <h1>Category: <span t-field="category.name"/></h1>
+                            </div>
+                            <div class="col-3 text-right">
+                                <span class="badge badge-info">
+                                    Ages <span t-esc="category.age_min"/> – <span t-esc="category.age_max"/>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Tournament:</strong>
+                                <span t-field="category.tournament_id.name"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Company:</strong>
+                                <span t-field="category.tournament_id.company_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <strong>Start Date:</strong>
+                                <span t-field="category.tournament_id.start_date"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>End Date:</strong>
+                                <span t-field="category.tournament_id.end_date"/>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <strong>Total Participants:</strong>
+                                <span t-esc="len(category.participant_ids)"/>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">Participants Ranking</h3>
+                        <table class="table table-sm table-bordered mt-2">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-center" style="width:50px;">#</th>
+                                    <th>Participant</th>
+                                    <th class="text-center" style="width:80px;">Age</th>
+                                    <th class="text-center" style="width:100px;">Total Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="sorted(category.participant_ids, key=lambda p: sum(p.score_ids.mapped('score')), reverse=True)" t-as="participant">
+                                    <tr t-att-class="'font-weight-bold' if participant_index == 0 else ''">
+                                        <td class="text-center">
+                                            <t t-if="participant_index == 0">🥇</t>
+                                            <t t-elif="participant_index == 1">🥈</t>
+                                            <t t-elif="participant_index == 2">🥉</t>
+                                            <t t-else=""><span t-esc="participant_index + 1"/></t>
+                                        </td>
+                                        <td><span t-field="participant.name"/></td>
+                                        <td class="text-center"><span t-field="participant.age"/></td>
+                                        <td class="text-center">
+                                            <span t-esc="sum(participant.score_ids.mapped('score'))"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr t-if="not category.participant_ids">
+                                    <td colspan="4" class="text-center text-muted">No participants registered</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <t t-if="category.participant_ids">
+                            <h3 class="mt-4">Score Detail</h3>
+                            <table class="table table-sm mt-2">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Participant</th>
+                                        <th>Judge</th>
+                                        <th class="text-center">Score</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="category.participant_ids" t-as="participant">
+                                        <t t-foreach="participant.score_ids" t-as="score">
+                                            <tr>
+                                                <td><span t-field="score.participant_id.name"/></td>
+                                                <td><span t-field="score.judge_id.name"/></td>
+                                                <td class="text-center"><span t-field="score.score"/></td>
+                                                <td><span t-field="score.notes"/></td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

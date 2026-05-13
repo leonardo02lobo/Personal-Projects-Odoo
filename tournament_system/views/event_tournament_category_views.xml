@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="event_tournament_category_views_tree" model="ir.ui.view">
+        <field name="name">event.tournament.category.tree</field>
+        <field name="model">event.tournament.category</field>
+        <field name="arch" type="xml">
+            <tree string="Category">
+                <field name="tournament_id" />
+                <field name="name" />
+                <field name="age_min" />
+                <field name="age_max" />
+                <field name="price" />
+                <field name="participant_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="event_tournament_category_views_form" model="ir.ui.view">
+        <field name="name">event.tournament.category.form</field>
+        <field name="model">event.tournament.category</field>
+        <field name="arch" type="xml">
+            <form string="Tournament Category">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Create new Category for Tournament</h1>
+                    </div>
+                    <group>
+                        <field name="tournament_id" />
+                        <field name="name" />
+                        <field name="age_min" />
+                        <field name="age_max" />
+                        <field name="price" />
+                        <field name="participant_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

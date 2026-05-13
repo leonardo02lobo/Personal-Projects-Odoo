@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tournament_canceld_wizard_views" model="ir.ui.view">
+        <field name="name">tournament.canceld.wizard.form</field>
+        <field name="model">tournament.canceld.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cancel Tournament">
+                <group>
+                    <field name="tournament_id" readonly="1"/>
+                    <field name="reason" placeholder="Reason for cancellation..."/>
+                </group>
+                <footer>
+                    <button name="action_confirm_cancel" string="Yes, Cancel Tournament" type="object" class="btn-danger"/>
+                    <button string="No, Go Back" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
